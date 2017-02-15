@@ -22,5 +22,11 @@
             "Bluetea\\JiraRestApiBundle": ""
         }
     },
-    "target-dir": "Bluetea/JiraRestApiBundle"
+    "target-dir": "Bluetea/JiraRestApiBundle",
+    ,
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        }
+    },
 }
