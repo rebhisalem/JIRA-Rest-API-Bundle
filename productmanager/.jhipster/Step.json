@@ -1,0 +1,47 @@
+{
+    "name": "Step",
+    "fields": [
+        {
+            "fieldName": "stepId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "label",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "survey",
+            "otherEntityRelationshipName": "surveyId",
+            "relationshipName": "stepId",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200218110624",
+    "entityTableName": "step",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": [
+        "productmanager"
+    ]
+}

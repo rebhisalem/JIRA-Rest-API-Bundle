@@ -1,0 +1,38 @@
+{
+    "name": "Survey",
+    "fields": [
+        {
+            "fieldName": "surveyId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "step",
+            "otherEntityRelationshipName": "stepId",
+            "relationshipName": "surveyId"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "surveyQuestion",
+            "otherEntityRelationshipName": "survey",
+            "relationshipName": "surveyQuestion"
+        }
+    ],
+    "changelogDate": "20200218110924",
+    "entityTableName": "survey",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": [
+        "productmanager"
+    ]
+}

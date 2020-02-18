@@ -1,0 +1,40 @@
+{
+    "name": "Proposition",
+    "fields": [
+        {
+            "fieldName": "propositionId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "label",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "question",
+            "otherEntityRelationshipName": "questionId",
+            "relationshipName": "propositionId",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200218111224",
+    "entityTableName": "proposition",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": [
+        "productmanager"
+    ]
+}

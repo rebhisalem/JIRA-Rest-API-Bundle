@@ -1,0 +1,87 @@
+{
+    "name": "Product",
+    "fields": [
+        {
+            "fieldName": "productId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "label",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "reissue",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "dateBeginESignature",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateEndESignature",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateBeginPaper",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateEndPaper",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateBeginTransfert",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dateEndTransfert",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "category",
+            "fieldType": "EProductCategory",
+            "fieldValues": "IMMO,DEATH",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fundigType",
+            "fieldType": "EFundingType",
+            "fieldValues": "IN_FINE,CONSTANT_AMORTIZATION"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "productStep",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "productStep"
+        }
+    ],
+    "changelogDate": "20200218110524",
+    "entityTableName": "product",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": [
+        "productmanager"
+    ]
+}
