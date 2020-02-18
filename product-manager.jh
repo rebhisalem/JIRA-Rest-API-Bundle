@@ -1,0 +1,118 @@
+application {
+  config {
+    baseName insurancepartnersgateway,
+    applicationType gateway,
+    packageName fr.magnolia.dsi.insurancepartnersgateway,
+    serviceDiscoveryType no,
+    authenticationType jwt,
+    databaseType mongodb,
+    prodDatabaseType mongodb,
+    devDatabaseType mongodb,
+    cacheProvider ehcache,
+    buildTool maven,
+    clientFramework angular,
+    useSass true,
+    testFrameworks [protractor]
+  }
+}
+
+application {
+  config {
+    baseName productmanager,
+    applicationType microservice,
+    packageName fr.magnolia.dsi.productmanager,
+    serviceDiscoveryType no,
+    authenticationType jwt,
+    databaseType mongodb,
+    prodDatabaseType mongodb,
+    devDatabaseType mongodb,
+    cacheProvider ehcache,
+    buildTool maven,
+    serverPort 8501,
+    skipUserManagement true
+  }
+  entities *
+}
+
+entity Product {
+    productId Long required
+    code String required
+    label String required
+    reissue Boolean
+    dateBeginESignature Date
+    dateEndESignature Date
+    dateBeginPaper Date
+    dateEndPaper Date
+    dateBeginTransfert Date
+    dateEndTransfert Date
+    category EProductCategory required
+    fundigType EFundingType
+}
+
+enum  EProductCategory { IMMO, DEATH }
+enum  EFundingType { IN_FINE, CONSTANT_AMORTIZATION }
+
+entity Step {
+    stepId Long required
+    code String required
+    label String required
+}
+
+entity ProductStep {
+	productStepId Long required
+	firstStep Boolean
+}
+
+relationship ManyToOne {
+  ProductStep{stepId} to Step{steps}
+  ProductStep{productId} to Product{products}
+}
+
+entity StepDecision {
+	stepDecisionId Long required
+    order Integer required
+    finalStep Boolean
+    nextStep ProductStep
+}
+
+relationship OneToMany {
+  StepDecision{stepDecisionId} to ProductStep{stepId}
+}
+
+entity Survey {
+	surveyId Long required
+}
+
+relationship OneToMany {
+    Survey{surveyId} to Step{stepId}
+}
+
+entity Question {
+	questionId Long required
+    code String required
+    text String required
+    dependent Boolean
+    type EQuestionType required
+}
+
+enum  EQuestionType { BOOL, NUMERIC, DATE, TEXT, CHECK, RADIO }
+
+entity SurveyQuestion {
+	surveyQuestionId Long required
+    order Integer required
+    
+}
+
+relationship ManyToOne {
+  SurveyQuestion{questionId} to Question{questions}
+  SurveyQuestion{surveyId} to Survey{surveys}
+}
+
+entity Proposition {
+	propositionId Long required
+    label String required
+}
+
+relationship OneToMany {
+    Question{questionId} to Proposition{propositionId}
+}
