@@ -1,0 +1,44 @@
+{
+    "name": "StepDecision",
+    "fields": [
+        {
+            "fieldName": "stepDecisionId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "order",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "finalStep",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "productStep",
+            "otherEntityRelationshipName": "stepDecision",
+            "relationshipName": "nextStep",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200218110824",
+    "entityTableName": "step_decision",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": [
+        "productmanager"
+    ]
+}

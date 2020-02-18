@@ -1,0 +1,47 @@
+{
+    "name": "SurveyQuestion",
+    "fields": [
+        {
+            "fieldName": "surveyQuestionId",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "order",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "question",
+            "otherEntityRelationshipName": "surveyQuestion",
+            "relationshipName": "question",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "survey",
+            "otherEntityRelationshipName": "surveyQuestion",
+            "relationshipName": "survey",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200218111124",
+    "entityTableName": "survey_question",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": [
+        "productmanager"
+    ]
+}
